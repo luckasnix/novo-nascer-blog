@@ -1,0 +1,29 @@
+.iconButton {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  svg {
+    width: 64px;
+    path {
+      fill: #FFFFFF;
+    }
+  }
+  button {
+    border: none;
+    background: none;
+    font: 20px 'Poppins', sans-serif;
+    color: #FFFFFF;
+  }
+}
+
+@media (max-width: 768px) {
+  .iconButton {
+    svg {
+      width: 48px;
+    }
+    button {
+      font-size: 16px;
+    }
+  }
+}

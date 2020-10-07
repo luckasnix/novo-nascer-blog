@@ -1,3 +1,9 @@
+import Layout from '../containers/layout'
+
 export default function NotFound() {
-  return <h1>Página não encontrada</h1>
+  return (
+    <Layout>
+      <h1>Página não encontrada</h1>
+    </Layout>
+  )
 }

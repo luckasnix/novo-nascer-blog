@@ -1,3 +1,9 @@
+import Layout from '../containers/layout'
+
 export default function Home() {
-  return <h1>Bem-vindo ao blog da Novo Nascer!</h1>
+  return (
+    <Layout>
+      <h1>Bem-vindo ao blog da Novo Nascer!</h1>
+    </Layout>
+  )
 }

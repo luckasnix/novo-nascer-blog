@@ -1,0 +1,28 @@
+.author {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 20px;
+}
+
+.picture {
+  img {
+    width: 128px;
+    height: 128px;
+    border-radius: 8px;
+  }
+}
+
+.info {
+  display: grid;
+  justify-content: start;
+  align-content: start;
+  gap: 4px;
+  h4 {
+    font: bold 18px 'Poppins', sans-serif;
+    color: #5076B8;
+  }
+  p {
+    font: 14px 'Poppins', sans-serif;
+    color: #A09678;
+  }
+}

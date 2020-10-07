@@ -1,0 +1,33 @@
+.postItem {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+}
+
+.thumbnail {
+  img {
+    width: 360px;
+  }
+}
+
+.content {
+  h2 {
+    font: 24px 'DM Serif Text', serif;
+    color: #707070;
+  }
+  p {
+    font: 16px 'Poppins', sans-serif;
+    color: #707070;
+  }
+  a {
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #837753;
+      font: bold 14px 'Poppins', sans-serif;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+  }
+}

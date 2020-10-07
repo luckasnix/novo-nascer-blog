@@ -1,0 +1,144 @@
+.footer {
+  width: 100%;
+  padding: 40px;
+  background: #EFECE5;
+}
+
+.wrapper {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 80px;
+}
+
+.forwarding {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 64px;
+}
+
+.credits {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  span {
+    display: block;
+    font: 16px 'Poppins', sans-serif;
+    color: #A09678;
+    text-align: center;
+  }
+}
+
+.brand {
+  display: grid;
+  align-content: start;
+  a {
+    display: grid;
+    align-content: start;
+    gap: 16px;
+    svg {
+      width: 200px;
+      g {
+        fill: #A09678;
+      }
+    }
+    span {
+      display: block;
+      font: 16px 'Poppins', sans-serif;
+      color: #A09678;
+      align-self: center;
+    }
+    &:hover {
+      svg {
+        width: 200px;
+        path {
+          fill: #837753;
+        }
+      }
+      span {
+        color: #837753;
+      }
+    }
+  }
+}
+
+.list {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  h3 {
+    font: bold 16px 'Poppins', sans-serif;
+    color: #A09678;
+  }
+  ul {
+    display: grid;
+    gap: 12px;
+    li {
+      a {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        gap: 16px;
+        svg {
+          width: 24px;
+          height: 24px;
+          align-self: center;
+          path {
+            fill: #A09678
+          }
+        }
+        span {
+          font: 16px 'Poppins', sans-serif;
+          color: #A09678;
+          align-self: center;
+        }
+      }
+      &:hover {
+        a {
+          svg {
+            path {
+              fill: #837753;
+            }
+          }
+          span {
+            color: #837753;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .forwarding {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .forwarding {
+    grid-template-columns: 1fr;
+  }
+
+  .credits {
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .brand {
+    justify-content: center;
+    a {
+      span {
+        text-align: center;
+      }
+    }
+  }
+
+  .list {
+    h3 {
+      justify-self: center;
+    }
+  }
+}

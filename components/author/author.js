@@ -1,7 +1,7 @@
 import { urlFor } from '../../utils/sanity'
 import styles from './author.module.scss'
 
-export default function Author({ profilePicture, name, bio }) {
+export default function Author({ profilePicture, name, occupation }) {
   return (
     <div className={styles.author}>
       <div className={styles.picture}>
@@ -9,7 +9,7 @@ export default function Author({ profilePicture, name, bio }) {
       </div>
       <div className={styles.info}>
         <h4>{name}</h4>
-        <p>{bio}</p>
+        <span>{occupation}</span>
       </div>
     </div>
   )

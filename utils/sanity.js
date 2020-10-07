@@ -38,7 +38,7 @@ export async function getPost(slug) {
         'slug': slug.current,
         profilePicture,
         name,
-        bio
+        occupation
       }
     }
   `, { slug })
@@ -61,7 +61,7 @@ export async function getAuthors() {
       'slug': slug.current,
       profilePicture,
       name,
-      bio
+      occupation
     }
   `)
   return authors
@@ -81,7 +81,7 @@ export async function getAuthorBySlug(slug) {
     *[_type == 'author' && slug.current == $slug] {
       profilePicture,
       name,
-      bio
+      occupation
     }
   `, { slug })
     .then(res => res[0])

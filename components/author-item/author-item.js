@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { urlFor } from '../../utils/sanity'
 import styles from './author-item.module.scss'
 
-export default function AuthorItem({ slug, profilePicture, name, bio }) {
+export default function AuthorItem({ slug, profilePicture, name, occupation }) {
   return (
     <li className={styles.authorItem}>
       <div className={styles.picture}>
@@ -10,7 +10,7 @@ export default function AuthorItem({ slug, profilePicture, name, bio }) {
       </div>
       <div className={styles.info}>
         <h2>{name}</h2>
-        <p>{bio}</p>
+        <span>{occupation}</span>
         <Link href='/autores/[slug]' as={`/autores/${slug}`}>
           <a>
             <button>Ver Artigos</button>

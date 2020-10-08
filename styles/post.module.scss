@@ -8,47 +8,57 @@
   height: 100%;
   margin: 0 auto;
   h1 {
-    font: 32px 'DM Serif Text', serif;
+    margin-bottom: 4px;
+    font: 40px 'DM Serif Text', serif;
     color: #5076B8;
   }
   time {
+    margin-bottom: 20px;
+    display: block;
     font: 16px 'Poppins', sans-serif;
     text-transform: uppercase;
     color: #707070;
   }
   img {
+    margin-bottom: 20px;
     width: 100%;
   }
 }
 
 .content {
-  display: grid;
-  gap: 20px;
+  margin-bottom: 80px;
   h1 {
-    font: 32px 'DM Serif Text', serif;
+    margin-bottom: 20px;
+    font: 40px 'DM Serif Text', serif;
     color: #5076B8;
   }
   h2 {
+    margin-bottom: 16px;
     font: 28px 'DM Serif Text', serif;
     color: #837753;
   }
   h3 {
+    margin-bottom: 16px;
     font: 24px 'DM Serif Text', serif;
     color: #A09678;
   }
   h4 {
+    margin-bottom: 16px;
     font: 20px 'DM Serif Text', serif;
     color: #A09678;
   }
   h5 {
+    margin-bottom: 16px;
     font: 18px 'DM Serif Text', serif;
     color: #A09678;
   }
   h6 {
+    margin-bottom: 16px;
     font: 16px 'DM Serif Text', serif;
     color: #A09678;
   }
   p {
+    margin-bottom: 16px;
     font: 16px/180% 'Poppins', sans-serif;
     color: #707070;
   }
@@ -69,6 +79,7 @@
     }
   }
   ul {
+    margin-bottom: 16px;
     margin-left: 32px;
     li {
       list-style: circle;
@@ -77,6 +88,7 @@
     }
   }
   ol {
+    margin-bottom: 16px;
     margin-left: 32px;
     li {
       list-style: decimal;
@@ -85,11 +97,14 @@
     }
   }
   figure {
-    justify-self: center;
+    margin-bottom: 16px;
+    text-align: center;
     img {
+      margin-bottom: 4px;
       width: 480px;
     }
     figcaption {
+      margin-bottom: 4px;
       font: 14px/180% 'Poppins', sans-serif;
       color: #707070;
     }

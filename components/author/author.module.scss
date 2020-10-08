@@ -1,27 +1,26 @@
 .author {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 128px 1fr;
-  gap: 20px;
+  column-gap: 20px;
 }
 
 .picture {
   img {
     width: 128px;
-    height: 128px;
     border-radius: 8px;
   }
 }
 
 .info {
-  display: grid;
-  justify-content: start;
-  align-content: start;
-  gap: 4px;
   h4 {
+    margin-bottom: 4px;
     font: bold 18px 'Poppins', sans-serif;
     color: #5076B8;
   }
   span {
+    display: block;
+    margin-bottom: 2px;
     font: 14px 'Poppins', sans-serif;
     color: #A09678;
   }

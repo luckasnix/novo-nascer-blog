@@ -13,12 +13,7 @@ export default function Posts({ posts, numOfPages }) {
     <Layout>
       <Headline title='Nossas postagens'/>
       <PostList posts={posts}/>
-      <Pagination
-        numOfPages={numOfPages}
-        curPage={page}
-        path='/postagens'
-        param='page'
-      />
+      <Pagination numOfPages={numOfPages} curPage={page} basePath='/postagens'/>
     </Layout>
   )
 }

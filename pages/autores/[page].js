@@ -13,12 +13,7 @@ export default function Authors({ authors, numOfPages }) {
     <Layout>
       <Headline title='Nossos autores'/>
       <AuthorList authors={authors}/>
-      <Pagination
-        numOfPages={numOfPages}
-        curPage={page}
-        path='/autores'
-        param='page'
-      />
+      <Pagination numOfPages={numOfPages} curPage={page} basePath='/autores'/>
     </Layout>
   )
 }

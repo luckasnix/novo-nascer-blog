@@ -1,6 +1,6 @@
 .authorList {
   width: 100%;
-  padding: 40px;
+  padding: 20px 40px;
 }
 
 .wrapper {
@@ -9,10 +9,6 @@
   margin: 0 auto;
   display: grid;
   row-gap: 20px;
-  h1 {
-    font: 40px 'DM Serif Text', serif;
-    color: #5076B8;
-  }
   ul {
     display: grid;
     row-gap: 20px;

@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import Layout from '../../containers/layout'
+import Headline from '../../containers/headline'
 import PostList from '../../containers/post-list'
-import Pagination from '../../components/pagination'
+import Pagination from '../../containers/pagination'
 import { getPostsSlugs, getPostsByPage } from '../../utils/sanity'
 import { POSTS_PER_PAGE } from '../../utils/constants'
 
@@ -10,6 +11,7 @@ export default function Posts({ posts, numOfPages }) {
   const { page } = router.query
   return (
     <Layout>
+      <Headline title='Nossas postagens'/>
       <PostList posts={posts}/>
       <Pagination
         numOfPages={numOfPages}

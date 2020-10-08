@@ -5,7 +5,6 @@ export default function AuthorList({ authors }) {
   return (
     <div className={styles.authorList}>
       <div className={styles.wrapper}>
-        <h1>Nossos autores</h1>
         <ul>
           {authors.map(author => (
             <AuthorItem key={author.slug} {...author}/>

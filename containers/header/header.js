@@ -6,9 +6,30 @@ import Event from '../../icons/event'
 import styles from './header.module.scss'
 
 const routes = [
-  { title: 'Postagens', href: '/postagens/1', icon: Post },
-  { title: 'Autores', href: '/autores/1', icon: Author },
-  { title: 'Eventos', href: '/eventos', icon: Event }
+  {
+    title: 'Postagens',
+    link: {
+      href: '/postagens/[page]',
+      as: '/postagens/1'
+    },
+    icon: Post
+  },
+  {
+    title: 'Autores',
+    link: {
+      href: '/autores/[page]',
+      as: '/autores/1'
+    },
+    icon: Author
+  },
+  {
+    title: 'Eventos',
+    link: {
+      href: '/eventos/[page]',
+      as: '/eventos/1'
+    },
+    icon: Event
+  }
 ]
 
 export default function Header() {

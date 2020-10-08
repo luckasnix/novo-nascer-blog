@@ -4,7 +4,7 @@ import styles from './author-item.module.scss'
 
 export default function AuthorItem({ slug, profilePicture, name, occupation }) {
   return (
-    <Link href='/autores/[slug]' as={`/autores/${slug}`}>
+    <Link href='/autor/[slug]' as={`/autor/${slug}`}>
       <li className={styles.authorItem}>
         <div className={styles.picture}>
           <img src={urlFor(profilePicture).width(128).url()} alt={`Foto do(a) ${name}`} loading='lazy'/>

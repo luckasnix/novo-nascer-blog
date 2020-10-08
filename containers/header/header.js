@@ -7,7 +7,7 @@ import styles from './header.module.scss'
 
 const routes = [
   { title: 'Postagens', href: '/postagens/1', icon: Post },
-  { title: 'Autores', href: '/autores', icon: Author },
+  { title: 'Autores', href: '/autores/1', icon: Author },
   { title: 'Eventos', href: '/eventos', icon: Event }
 ]
 

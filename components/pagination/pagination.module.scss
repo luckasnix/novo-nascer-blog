@@ -9,30 +9,38 @@
   margin: 0 auto;
   display: grid;
   grid-template-areas:
-  'prev next';
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.link {
-  font: 18px 'Poppins', sans-serif;
-  color: #A09678;
-  &:link {
+    'prev cur next';
+  grid-template-columns: repeat(3, 1fr);
+  span {
+    font: 18px 'Poppins', sans-serif;
     color: #A09678;
   }
-  &:visited {
+  a {
+    font: 18px 'Poppins', sans-serif;
     color: #A09678;
-  }
-  &:active {
-    color: #A09678;
-  }
-  &:hover {
-    color: #837753;
+    &:link {
+      color: #A09678;
+    }
+    &:visited {
+      color: #A09678;
+    }
+    &:active {
+      color: #A09678;
+    }
+    &:hover {
+      color: #837753;
+    }
   }
 }
 
 .prevPage {
   grid-area: prev;
   justify-self: start;
+}
+
+.curPage {
+  grid-area: cur;
+  justify-self: center;
 }
 
 .nextPage {

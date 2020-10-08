@@ -55,15 +55,17 @@ export async function getPostsSlugs() {
   return postSlugs
 }
 
-export async function getAuthors() {
+export async function getAuthorsByPage(page) {
+  const start = (page - 1) * POSTS_PER_PAGE
+  const end = page * POSTS_PER_PAGE
   const authors = await client.fetch(`
-    *[_type == 'author'] {
+    *[_type == 'author'] | order(name desc) [$start...$end] {
       'slug': slug.current,
       profilePicture,
       name,
       occupation
     }
-  `)
+  `, { start, end })
   return authors
 }
 

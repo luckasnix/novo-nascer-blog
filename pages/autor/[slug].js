@@ -1,12 +1,12 @@
 import Layout from '../../containers/layout'
-import Author from '../../components/author'
+import AuthorBox from '../../components/author-box'
 import PostList from '../../containers/post-list'
 import { getAuthorsSlugs, getAuthorBySlug, getPostsByAuthorSlug } from '../../utils/sanity'
 
 export default function AuthorDetail({ author, posts }) {
   return (
     <Layout>
-      <Author {...author}/>
+      <AuthorBox {...author}/>
       <PostList posts={posts}/>
     </Layout>
   )

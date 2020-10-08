@@ -7,17 +7,17 @@
   max-width: 720px;
   height: 100%;
   margin: 0 auto;
-  h1 {
-    margin-bottom: 4px;
-    font: 40px 'DM Serif Text', serif;
-    color: #5076B8;
-  }
   time {
-    margin-bottom: 20px;
+    margin-bottom: 4px;
     display: block;
     font: 16px 'Poppins', sans-serif;
     text-transform: uppercase;
     color: #707070;
+  }
+  h1 {
+    margin-bottom: 20px;
+    font: 40px 'DM Serif Text', serif;
+    color: #5076B8;
   }
   img {
     margin-bottom: 20px;
@@ -26,7 +26,6 @@
 }
 
 .content {
-  margin-bottom: 80px;
   h1 {
     margin-bottom: 20px;
     font: 40px 'DM Serif Text', serif;

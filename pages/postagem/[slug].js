@@ -1,7 +1,7 @@
 import BlockContent from '@sanity/block-content-to-react'
 import Layout from '../../containers/layout'
 import Date from '../../components/date'
-import Author from '../../components/author'
+import AuthorBox from '../../components/author-box'
 import { urlFor, getPostsSlugs, getPost } from '../../utils/sanity'
 import styles from '../../styles/post.module.scss'
 
@@ -21,11 +21,11 @@ export default function Post({ post: { title, date, coverImage, content, author 
     <Layout>
       <div className={styles.post}>
         <div className={styles.wrapper}>
-          <h1>{title}</h1>
           <Date date={date}/>
+          <h1>{title}</h1>
+          <AuthorBox {...author}/>
           <img src={urlFor(coverImage).width(720).url()} alt={coverImage.description} loading='lazy'/>
           <BlockContent className={styles.content} blocks={content} serializers={serializers}/>
-          <Author {...author}/>
         </div>
       </div>
     </Layout>

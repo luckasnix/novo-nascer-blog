@@ -17,20 +17,19 @@
 }
 
 .content {
-  display: grid;
-  justify-content: start;
-  align-content: start;
-  row-gap: 4px;
   time {
+    margin-bottom: 2px;
     font: 14px 'Poppins', sans-serif;
     text-transform: uppercase;
     color: #707070;
   }
   h2 {
+    margin-bottom: 8px;
     font: 24px 'DM Serif Text', serif;
     color: #5076B8;
   }
   p {
+    margin-bottom: 2px;
     font: 16px 'Poppins', sans-serif;
     color: #A09678;
   }

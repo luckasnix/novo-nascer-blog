@@ -17,13 +17,10 @@
 }
 
 .info {
-  display: grid;
-  justify-content: start;
-  align-content: start;
-  row-gap: 4px;
   h2 {
     font: bold 20px 'Poppins', sans-serif;
     color: #5076B8;
+    margin-bottom: 4px;
   }
   span {
     font: 14px 'Poppins', sans-serif;

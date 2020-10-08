@@ -6,7 +6,7 @@ import Event from '../../icons/event'
 import styles from './header.module.scss'
 
 const routes = [
-  { title: 'Postagens', href: '/postagens', icon: Post },
+  { title: 'Postagens', href: '/postagens/1', icon: Post },
   { title: 'Autores', href: '/autores', icon: Author },
   { title: 'Eventos', href: '/eventos', icon: Event }
 ]
@@ -17,7 +17,7 @@ export default function Header() {
       <div className={styles.wrapper}>
         <div className={styles.brand}>
           <Link href='/'>
-            <img src='images/logo-white.webp' alt='Logo da Clínica Hospitalar Novo Nascer' loading='lazy'/>
+            <img src='../images/logo-white.webp' alt='Logo da Clínica Hospitalar Novo Nascer' loading='lazy'/>
           </Link>
         </div>
         <nav className={styles.menu}>

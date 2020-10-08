@@ -22,7 +22,7 @@ export default function Post({ post: { title, date, coverImage, content, author 
       <div className={styles.post}>
         <div className={styles.wrapper}>
           <h1>{title}</h1>
-          <Date date={date} size='md'/>
+          <Date date={date}/>
           <img src={urlFor(coverImage).width(720).url()} alt={coverImage.description} loading='lazy'/>
           <BlockContent className={styles.content} blocks={content} serializers={serializers}/>
           <Author {...author}/>

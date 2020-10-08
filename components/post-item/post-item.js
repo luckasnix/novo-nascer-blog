@@ -11,7 +11,7 @@ export default function PostItem({ slug, title, description, date, coverImage })
           <img src={urlFor(coverImage).width(360).url()} alt={coverImage.description} loading='lazy'/>
         </div>
         <div className={styles.content}>
-          <Date date={date} size='sm'/>
+          <Date date={date}/>
           <h2>{title}</h2>
           <p>{description}</p>        
         </div>

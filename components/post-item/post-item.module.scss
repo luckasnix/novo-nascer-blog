@@ -1,33 +1,32 @@
 .postItem {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px -4px #8377537F;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 360px 1fr;
-  gap: 20px;
+  column-gap: 20px;
 }
 
 .thumbnail {
   img {
     width: 360px;
+    border-radius: 8px;
   }
 }
 
 .content {
+  display: grid;
+  justify-content: start;
+  align-content: start;
+  row-gap: 4px;
   h2 {
     font: 24px 'DM Serif Text', serif;
-    color: #707070;
+    color: #5076B8;
   }
   p {
     font: 16px 'Poppins', sans-serif;
-    color: #707070;
-  }
-  a {
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 8px;
-      background: #837753;
-      font: bold 14px 'Poppins', sans-serif;
-      color: #FFFFFF;
-      cursor: pointer;
-    }
+    color: #A09678;
   }
 }

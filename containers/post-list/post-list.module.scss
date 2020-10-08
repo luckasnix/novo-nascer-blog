@@ -7,9 +7,14 @@
   max-width: 720px;
   height: 100%;
   margin: 0 auto;
-}
-
-.list {
   display: grid;
-  gap: 20px;
+  row-gap: 20px;
+  h1 {
+    font: 40px 'DM Serif Text', serif;
+    color: #5076B8;
+  }
+  ul {
+    display: grid;
+    row-gap: 20px;
+  }
 }

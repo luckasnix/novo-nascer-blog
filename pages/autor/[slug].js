@@ -1,12 +1,12 @@
 import Layout from '../../containers/layout'
-import AuthorBox from '../../components/author-box'
+import Headline from '../../containers/headline'
 import PostList from '../../containers/post-list'
 import { getAuthorsSlugs, getAuthorBySlug, getPostsByAuthorSlug } from '../../utils/sanity'
 
 export default function AuthorDetail({ author, posts }) {
   return (
     <Layout>
-      <AuthorBox {...author}/>
+      <Headline title={`Postagens do(a) ${author.name}`}/>
       <PostList posts={posts}/>
     </Layout>
   )

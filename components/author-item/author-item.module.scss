@@ -4,9 +4,20 @@
   border-radius: 8px;
   box-shadow: 8px 8px 8px -4px #8377537F;
   cursor: pointer;
+  position: relative;
   display: grid;
   grid-template-columns: 128px 1fr;
   column-gap: 20px;
+  &:hover::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #FFFFFF;
+    opacity: 0.2;
+  }
 }
 
 .picture {

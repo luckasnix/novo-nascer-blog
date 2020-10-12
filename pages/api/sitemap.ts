@@ -1,7 +1,8 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { getPostsMetadata } from '../../utils/sanity'
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const smStream = new SitemapStream({
     hostname: `https://${req.headers.host}`
   })
@@ -12,7 +13,7 @@ export default async (req, res) => {
   })
 
   const postsMetadata = await getPostsMetadata()
-  postsMetadata.forEach(({ slug, _updatedAt }) => {
+  postsMetadata.forEach(({ slug, _updatedAt }: { slug: string, _updatedAt: string }) => {
     smStream.write({
       url: `postagem/${slug}`,
       lastmod: _updatedAt,

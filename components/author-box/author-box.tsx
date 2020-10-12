@@ -2,7 +2,19 @@ import Link from 'next/link'
 import { urlFor } from '../../utils/sanity'
 import styles from './author-box.module.scss'
 
-export default function AuthorBox({ slug, profilePicture, name }) {
+interface AuthorBoxProps {
+  slug: string
+  profilePicture: {
+    _type: string
+    asset: {
+      _type: string
+      _ref: string
+    }
+  }
+  name: string
+}
+
+export default function AuthorBox({ slug, profilePicture, name }: AuthorBoxProps) {
   return (
     <Link href='/autor/[slug]' as={`/autor/${slug}`}>
       <div className={styles.authorBox}>

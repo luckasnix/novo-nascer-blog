@@ -55,6 +55,18 @@ export async function getPostsSlugs() {
   return postSlugs
 }
 
+export async function getPostsMetadata() {
+  const postSlugs = await client.fetch(`
+    *[_type == 'post'] {
+      _id,
+      'slug': slug.current,
+      _createdAt,
+      _updatedAt
+    }
+  `)
+  return postSlugs
+}
+
 export async function getAuthorsByPage(page) {
   const start = (page - 1) * POSTS_PER_PAGE
   const end = page * POSTS_PER_PAGE

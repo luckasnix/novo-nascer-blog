@@ -3,11 +3,14 @@ import styles from './pagination.module.scss'
 
 export interface PaginationProps {
   numOfPages: number
-  curPage: string
+  curPage: string | string[]
   basePath: string
 }
 
 export default function Pagination({ numOfPages, curPage, basePath }: PaginationProps) {
+  if (curPage instanceof Array) {
+    curPage = curPage[0]
+  }
   const prevPage = +curPage - 1
   const nextPage = +curPage + 1
   return (

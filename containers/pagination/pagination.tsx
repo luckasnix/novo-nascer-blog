@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import styles from './pagination.module.scss'
 
-export default function Pagination({ numOfPages, curPage, basePath }) {
+export interface PaginationProps {
+  numOfPages: number
+  curPage: string
+  basePath: string
+}
+
+export default function Pagination({ numOfPages, curPage, basePath }: PaginationProps) {
   const prevPage = +curPage - 1
   const nextPage = +curPage + 1
   return (

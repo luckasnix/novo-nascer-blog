@@ -1,6 +1,10 @@
 import styles from './headline.module.scss'
 
-export default function Headline({ title }) {
+export interface HeadlineProps {
+  title: string
+}
+
+export default function Headline({ title }: HeadlineProps) {
   return (
     <div className={styles.headline}>
       <div className={styles.wrapper}>

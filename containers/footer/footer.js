@@ -1,5 +1,5 @@
 import ExternalLink from '../../components/external-link'
-import Logo from '../../components/logo'
+import Logo from '../../icons/logo'
 import WhatsApp from '../../icons/whats-app'
 import Instagram from '../../icons/instagram'
 import Youtube from '../../icons/youtube'

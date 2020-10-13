@@ -39,8 +39,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { page } = ctx.params
-  const authors = await getAuthorsByPage(page)
+  let { page } = ctx.params
+  if (page instanceof Array) {
+    page = page[0]
+  }
+  const authors = await getAuthorsByPage(+page)
   const authorsSlugs = await getAuthorsSlugs()
   const numOfPages = Math.ceil(authorsSlugs.length / POSTS_PER_PAGE)
   return {

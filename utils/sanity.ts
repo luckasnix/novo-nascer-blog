@@ -8,7 +8,7 @@ const client = sanityClient({
   useCdn: false
 })
 
-export async function getPostsByPage(page) {
+export const getPostsByPage = async (page: number) => {
   const start = (page - 1) * POSTS_PER_PAGE
   const end = page * POSTS_PER_PAGE
   const posts = await client.fetch(`
@@ -23,7 +23,7 @@ export async function getPostsByPage(page) {
   return posts
 }
 
-export async function getPost(slug) {
+export const getPost = async (slug: string) => {
   const post = await client.fetch(`
     *[_type == 'post' && slug.current == $slug] {
       title,
@@ -46,7 +46,7 @@ export async function getPost(slug) {
   return post
 }
 
-export async function getPostsSlugs() {
+export const getPostsSlugs = async () => {
   const postSlugs = await client.fetch(`
     *[_type == 'post'] {
       'slug': slug.current
@@ -55,7 +55,7 @@ export async function getPostsSlugs() {
   return postSlugs
 }
 
-export async function getPostsMetadata() {
+export const getPostsMetadata = async () => {
   const postSlugs = await client.fetch(`
     *[_type == 'post'] {
       _id,
@@ -67,7 +67,7 @@ export async function getPostsMetadata() {
   return postSlugs
 }
 
-export async function getAuthorsByPage(page) {
+export const getAuthorsByPage = async (page: number) => {
   const start = (page - 1) * POSTS_PER_PAGE
   const end = page * POSTS_PER_PAGE
   const authors = await client.fetch(`
@@ -81,7 +81,7 @@ export async function getAuthorsByPage(page) {
   return authors
 }
 
-export async function getAuthorsSlugs() {
+export const getAuthorsSlugs = async () => {
   const authorsSlugs = await client.fetch(`
     *[_type == 'author'] {
       'slug': slug.current
@@ -90,7 +90,7 @@ export async function getAuthorsSlugs() {
   return authorsSlugs
 }
 
-export async function getAuthorBySlug(slug) {
+export const getAuthorBySlug = async (slug: string) => {
   const author = await client.fetch(`
     *[_type == 'author' && slug.current == $slug] {
       profilePicture,
@@ -102,7 +102,7 @@ export async function getAuthorBySlug(slug) {
   return author
 }
 
-export async function getPostsByAuthorSlug(authorSlug) {
+export const getPostsByAuthorSlug = async (authorSlug: string) => {
   const posts = await client.fetch(`
     *[_type == 'post' && author->slug.current == $authorSlug] | order(date desc) {
       'slug': slug.current,
@@ -117,7 +117,7 @@ export async function getPostsByAuthorSlug(authorSlug) {
 
 const builder = imageUrlBuilder(client)
 
-export function urlFor(src) {
+export function urlFor(src: any) {
   return builder.image(src)
 }
 

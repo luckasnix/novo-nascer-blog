@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import Date from '../date'
+import { AuthorItemProps } from '../author-item'
 import { urlFor } from '../../utils/sanity'
 import styles from './post-item.module.scss'
 
 export interface PostItemProps {
-  slug: string
-  title: string
-  description: string
-  date: string
-  coverImage: {
+  slug?: string
+  title?: string
+  description?: string
+  date?: string
+  coverImage?: {
     _type: string
     asset: {
       _type: string
@@ -16,6 +17,8 @@ export interface PostItemProps {
     }
     description: string
   }
+  content?: any
+  author?: AuthorItemProps
 }
 
 export default function PostItem({ slug, title, description, date, coverImage }: PostItemProps) {

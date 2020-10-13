@@ -27,7 +27,7 @@ export const getPost = async (slug: string) => {
   const post = await client.fetch(`
     *[_type == 'post' && slug.current == $slug] {
       title,
-      subtitle,
+      description,
       date,
       coverImage,
       content[] {

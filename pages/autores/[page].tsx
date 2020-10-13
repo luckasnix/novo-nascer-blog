@@ -6,7 +6,7 @@ import AuthorList from '../../containers/author-list'
 import Pagination from '../../containers/pagination'
 import { AuthorItemProps } from '../../components/author-item'
 import { getAuthorsSlugs, getAuthorsByPage } from '../../utils/sanity'
-import { POSTS_PER_PAGE } from '../../utils/constants'
+import { postsPerPage } from '../../utils/constants'
 
 interface AuthorsProps {
   authors: AuthorItemProps[]
@@ -27,7 +27,7 @@ export default function Authors({ authors, numOfPages }: AuthorsProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const authorsSlugs = await getAuthorsSlugs()
-  const numOfPages = Math.ceil(authorsSlugs.length / POSTS_PER_PAGE)
+  const numOfPages = Math.ceil(authorsSlugs.length / postsPerPage)
   let paths = []
   for (let i = 1; i <= numOfPages; i++) {
     paths.push({ params: { page: i.toString() } })
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
   const authors = await getAuthorsByPage(+page)
   const authorsSlugs = await getAuthorsSlugs()
-  const numOfPages = Math.ceil(authorsSlugs.length / POSTS_PER_PAGE)
+  const numOfPages = Math.ceil(authorsSlugs.length / postsPerPage)
   return {
     props: {
       authors,

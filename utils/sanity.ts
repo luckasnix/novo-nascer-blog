@@ -1,6 +1,6 @@
 import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { POSTS_PER_PAGE } from './constants'
+import { postsPerPage } from './constants'
 
 const client = sanityClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -9,8 +9,8 @@ const client = sanityClient({
 })
 
 export const getPostsByPage = async (page: number) => {
-  const start = (page - 1) * POSTS_PER_PAGE
-  const end = page * POSTS_PER_PAGE
+  const start = (page - 1) * postsPerPage
+  const end = page * postsPerPage
   const posts = await client.fetch(`
     *[_type == 'post'] | order(date desc) [$start...$end] {
       'slug': slug.current,
@@ -68,8 +68,8 @@ export const getPostsMetadata = async () => {
 }
 
 export const getAuthorsByPage = async (page: number) => {
-  const start = (page - 1) * POSTS_PER_PAGE
-  const end = page * POSTS_PER_PAGE
+  const start = (page - 1) * postsPerPage
+  const end = page * postsPerPage
   const authors = await client.fetch(`
     *[_type == 'author'] | order(name desc) [$start...$end] {
       'slug': slug.current,

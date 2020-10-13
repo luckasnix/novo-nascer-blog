@@ -6,7 +6,7 @@ import PostList from '../../containers/post-list'
 import Pagination from '../../containers/pagination'
 import { PostItemProps } from '../../components/post-item'
 import { getPostsSlugs, getPostsByPage } from '../../utils/sanity'
-import { POSTS_PER_PAGE } from '../../utils/constants'
+import { postsPerPage } from '../../utils/constants'
 
 interface PostsProps {
   posts: PostItemProps[]
@@ -27,7 +27,7 @@ export default function Posts({ posts, numOfPages }: PostsProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsSlugs = await getPostsSlugs()
-  const numOfPages = Math.ceil(postsSlugs.length / POSTS_PER_PAGE)
+  const numOfPages = Math.ceil(postsSlugs.length / postsPerPage)
   let paths = []
   for (let i = 1; i <= numOfPages; i++) {
     paths.push({ params: { page: i.toString() } })
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
   const posts = await getPostsByPage(+page)
   const postsSlugs = await getPostsSlugs()
-  const numOfPages = Math.ceil(postsSlugs.length / POSTS_PER_PAGE)
+  const numOfPages = Math.ceil(postsSlugs.length / postsPerPage)
   return {
     props: {
       posts,

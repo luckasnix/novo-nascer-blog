@@ -25,8 +25,9 @@ interface PostProps {
   post: PostItemProps
 }
 
-export default function Post({ post: { title, description, date, coverImage, content, author } }: PostProps) {
-  const optimizedCoverImage = urlFor(coverImage).width(720).url()
+export default function Post({ post }: PostProps) {
+  const coverImageUrl = urlFor(post.coverImage).width(720).url()
+  const authorProfilePictureUrl = urlFor(post.author.profilePicture).width(128).url()
   return (
     <Layout>
       <Head>
@@ -34,24 +35,25 @@ export default function Post({ post: { title, description, date, coverImage, con
           {...jsonLdScriptProps<BlogPosting>({
             '@context': 'https://schema.org', 
             '@type': 'BlogPosting',
-            'headline': title,
-            'description': description,
-            'datePublished': date,
-            'image': optimizedCoverImage,
+            'headline': post.title,
+            'description': post.description,
+            'datePublished': post.date,
+            'image': coverImageUrl,
             'author': {
               '@type': 'Person',
-              'name': author.name
+              'name': post.author.name,
+              'image': authorProfilePictureUrl
             }
           })}
         />
       </Head>
       <div className={styles.post}>
         <div className={styles.wrapper}>
-          <Date date={date}/>
-          <h1>{title}</h1>
-          <AuthorBox {...author}/>
-          <img src={optimizedCoverImage} alt={coverImage.description} loading='lazy'/>
-          <BlockContent className={styles.content} blocks={content} serializers={serializers}/>
+          <Date date={post.date}/>
+          <h1>{post.title}</h1>
+          <AuthorBox {...post.author}/>
+          <img src={coverImageUrl} alt={post.coverImage.description} loading='lazy'/>
+          <BlockContent className={styles.content} blocks={post.content} serializers={serializers}/>
         </div>
       </div>
     </Layout>

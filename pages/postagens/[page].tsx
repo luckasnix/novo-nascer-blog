@@ -1,12 +1,19 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Layout from '../../containers/layout'
 import Headline from '../../containers/headline'
 import PostList from '../../containers/post-list'
 import Pagination from '../../containers/pagination'
+import { PostItemProps } from '../../components/post-item'
 import { getPostsSlugs, getPostsByPage } from '../../utils/sanity'
 import { POSTS_PER_PAGE } from '../../utils/constants'
 
-export default function Posts({ posts, numOfPages }) {
+interface PostsProps {
+  posts: PostItemProps[]
+  numOfPages: number
+}
+
+export default function Posts({ posts, numOfPages }: PostsProps) {
   const router = useRouter()
   const { page } = router.query
   return (
@@ -18,7 +25,7 @@ export default function Posts({ posts, numOfPages }) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const postsSlugs = await getPostsSlugs()
   const numOfPages = Math.ceil(postsSlugs.length / POSTS_PER_PAGE)
   let paths = []
@@ -31,7 +38,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(ctx) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { page } = ctx.params
   const posts = await getPostsByPage(page)
   const postsSlugs = await getPostsSlugs()

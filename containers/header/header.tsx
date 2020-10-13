@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import Link from 'next/link'
 import IconButton from '../../components/icon-button'
 import Post from '../../icons/post'
@@ -5,7 +6,16 @@ import Author from '../../icons/author'
 import Event from '../../icons/event'
 import styles from './header.module.scss'
 
-const routes = [
+export interface Route {
+  title: string
+  link: {
+    href: string
+    as: string
+  }
+  icon: ComponentType
+}
+
+const routes: Route[] = [
   {
     title: 'Postagens',
     link: {

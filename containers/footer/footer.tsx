@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import ExternalLink from '../../components/external-link'
 import Logo from '../../icons/logo'
 import WhatsApp from '../../icons/whats-app'
@@ -10,14 +11,25 @@ const baseUrl = 'https://www.novonascer.com.br'
 
 const curYear = new Date().getFullYear()
 
-const socialMedias = [
+export interface SocialMedia {
+  title: string
+  href: string
+  icon: ComponentType
+}
+
+const socialMedias: SocialMedia[] = [
   { title: 'WhatsApp', href: 'https://wa.me/5581973163700', icon: WhatsApp },
   { title: 'Instagram', href: 'https://www.instagram.com/novonascer', icon: Instagram },
   { title: 'Youtube', href: 'https://www.youtube.com/user/novonascer', icon: Youtube },
   { title: 'Facebook', href: 'https://www.facebook.com/novonascer', icon: Facebook }
 ]
 
-const addictionTreatments = [
+export interface AddictionTreatment {
+  title: string
+  path: string
+}
+
+const addictionTreatments: AddictionTreatment[] = [
   { title: 'Tabagismo', path: 'tabagismo' },
   { title: 'Sexo', path: 'sexo' },
   { title: 'Vigorexia', path: 'vigorexia' },
@@ -34,7 +46,12 @@ const addictionTreatments = [
   { title: 'Alcoolismo', path: 'alcoolismo' }
 ]
 
-const psychiatryTreatments = [
+export interface PsychiatryTreatment {
+  title: string
+  path: string
+}
+
+const psychiatryTreatments: PsychiatryTreatment[] = [
   { title: 'Ciúme Patológico', path: 'ciume-patologico' },
   { title: 'Bulimia Nervosa', path: 'bulimia-nervosa' },
   { title: 'Anorexia Nervosa', path: 'anorexia-nervosa' },

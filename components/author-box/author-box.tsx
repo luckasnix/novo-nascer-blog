@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { urlFor } from '../../utils/sanity'
 import styles from './author-box.module.scss'
 
-interface AuthorBoxProps {
+export interface AuthorBoxProps {
   slug: string
   profilePicture: {
     _type: string

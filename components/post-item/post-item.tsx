@@ -3,7 +3,22 @@ import Date from '../date'
 import { urlFor } from '../../utils/sanity'
 import styles from './post-item.module.scss'
 
-export default function PostItem({ slug, title, description, date, coverImage }) {
+export interface PostItemProps {
+  slug: string
+  title: string
+  description: string
+  date: string
+  coverImage: {
+    _type: string
+    asset: {
+      _type: string
+      _ref: string
+    }
+    description: string
+  }
+}
+
+export default function PostItem({ slug, title, description, date, coverImage }: PostItemProps) {
   return (
     <Link href='/postagem/[slug]' as={`/postagem/${slug}`}>
       <li className={styles.postItem}>

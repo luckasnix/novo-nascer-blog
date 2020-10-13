@@ -3,16 +3,16 @@ import { urlFor } from '../../utils/sanity'
 import styles from './author-item.module.scss'
 
 export interface AuthorItemProps {
-  slug: string
-  profilePicture: {
+  slug?: string
+  profilePicture?: {
     _type: string
     asset: {
       _type: string
       _ref: string
     }
   }
-  name: string
-  bio: string
+  name?: string
+  bio?: string
 }
 
 export default function AuthorItem({ slug, profilePicture, name, bio }: AuthorItemProps) {

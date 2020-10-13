@@ -1,7 +1,11 @@
 import { parseISO, format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
-export default function Date({ date }) {
+export interface DateProps {
+  date: string
+}
+
+export default function Date({ date }: DateProps) {
   const parsedDate = parseISO(date)
   return (
     <time dateTime={date}>

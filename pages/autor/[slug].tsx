@@ -2,9 +2,11 @@ import Head from 'next/head'
 import { jsonLdScriptProps } from 'react-schemaorg'
 import { Person } from 'schema-dts'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import Layout from '../../containers/layout'
 import Headline from '../../containers/headline'
 import PostList from '../../containers/post-list'
+import Pagination from '../../containers/pagination'
 import { AuthorItemProps } from '../../components/author-item'
 import { PostItemProps } from '../../components/post-item'
 import { urlFor, getAuthorsSlugs, getAuthorBySlug, getPostsByAuthorSlug } from '../../utils/sanity'
@@ -15,6 +17,8 @@ interface AuthorProps {
 }
 
 export default function Author({ author, posts }: AuthorProps) {
+  const router = useRouter()
+  const { slug } = router.query
   const profilePictureUrl = urlFor(author.profilePicture).width(128).url()
   return (
     <Layout>
@@ -28,8 +32,9 @@ export default function Author({ author, posts }: AuthorProps) {
           })}
         />
       </Head>
-      <Headline title={`Postagens do(a) ${author.name}`}/>
+      <Headline title={`Postagens de ${author.name}`}/>
       <PostList posts={posts}/>
+      <Pagination numOfPages={1} curPage='1' basePath={`/autor/${slug}`}/>
     </Layout>
   )
 }

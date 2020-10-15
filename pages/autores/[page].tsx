@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Headline from '../../containers/headline'
-import AuthorList from '../../containers/author-list'
+import CurrentAuthors from '../../containers/current-authors'
 import Pagination from '../../containers/pagination'
 import { AuthorItemProps } from '../../components/author-item'
 import { getAuthorsSlugs, getAuthorsByPage } from '../../utils/sanity'
@@ -17,8 +16,7 @@ export default function Authors({ authors, numOfPages }: AuthorsProps) {
   const { page } = router.query
   return (
     <>
-      <Headline title='Nossos autores'/>
-      <AuthorList authors={authors}/>
+      <CurrentAuthors title='Nossos autores' authors={authors}/>
       <Pagination numOfPages={numOfPages} curPage={page} basePath='/autores'/>
     </>
   )

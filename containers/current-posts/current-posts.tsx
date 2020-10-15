@@ -18,7 +18,7 @@ export default function CurrentPosts({ title, posts }: CurrentPostsProps) {
           {posts.length ? (
             <PostList posts={posts}/>
           ) : (
-            <span>Não há postagens deste autor</span>
+            <strong>Não há postagens</strong>
           )}
         </div>
       </div>

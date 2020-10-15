@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Layout from '../../containers/layout'
 import Headline from '../../containers/headline'
 import AuthorList from '../../containers/author-list'
 import Pagination from '../../containers/pagination'
@@ -17,11 +16,11 @@ export default function Authors({ authors, numOfPages }: AuthorsProps) {
   const router = useRouter()
   const { page } = router.query
   return (
-    <Layout>
+    <>
       <Headline title='Nossos autores'/>
       <AuthorList authors={authors}/>
       <Pagination numOfPages={numOfPages} curPage={page} basePath='/autores'/>
-    </Layout>
+    </>
   )
 }
 

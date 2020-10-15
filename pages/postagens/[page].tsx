@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Layout from '../../containers/layout'
 import CurrentPosts from '../../containers/current-posts'
 import Pagination from '../../containers/pagination'
 import { PostItemProps } from '../../components/post-item'
@@ -16,10 +15,10 @@ export default function Posts({ posts, numOfPages }: PostsProps) {
   const router = useRouter()
   const { page } = router.query
   return (
-    <Layout>
+    <>
       <CurrentPosts posts={posts}/>
       <Pagination numOfPages={numOfPages} curPage={page} basePath='/postagens'/>
-    </Layout>
+    </>
   )
 }
 

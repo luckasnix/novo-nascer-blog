@@ -3,7 +3,6 @@ import { jsonLdScriptProps } from 'react-schemaorg'
 import { Person } from 'schema-dts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Layout from '../../containers/layout'
 import Headline from '../../containers/headline'
 import PostList from '../../components/post-list'
 import Pagination from '../../containers/pagination'
@@ -21,7 +20,7 @@ export default function Author({ author, posts }: AuthorProps) {
   const { slug } = router.query
   const profilePictureUrl = urlFor(author.profilePicture).width(128).url()
   return (
-    <Layout>
+    <>
       <Head>
         <script
           {...jsonLdScriptProps<Person>({
@@ -35,7 +34,7 @@ export default function Author({ author, posts }: AuthorProps) {
       <Headline title={`Postagens de ${author.name}`}/>
       <PostList posts={posts}/>
       <Pagination numOfPages={1} curPage='1' basePath={`/autor/${slug}`}/>
-    </Layout>
+    </>
   )
 }
 

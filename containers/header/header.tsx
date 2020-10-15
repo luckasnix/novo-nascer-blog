@@ -48,7 +48,7 @@ export default function Header() {
       <div className={styles.wrapper}>
         <div className={styles.brand}>
           <Link href='/'>
-            <img src='../images/logo-white.webp' alt='Logo da Clínica Hospitalar Novo Nascer' loading='lazy'/>
+            <img src='./images/logo-white.webp' alt='Logo da Clínica Hospitalar Novo Nascer' loading='lazy'/>
           </Link>
         </div>
         <nav className={styles.menu}>

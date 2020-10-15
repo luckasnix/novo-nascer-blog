@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { jsonLdScriptProps } from 'react-schemaorg'
 import { BlogPosting } from 'schema-dts'
 import BlockContent from '@sanity/block-content-to-react'
-import Layout from '../../containers/layout'
 import Date from '../../components/date'
 import AuthorBox from '../../components/author-box'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -29,7 +28,7 @@ export default function Post({ post }: PostProps) {
   const coverImageUrl = urlFor(post.coverImage).width(720).url()
   const authorProfilePictureUrl = urlFor(post.author.profilePicture).width(128).url()
   return (
-    <Layout>
+    <>
       <Head>
         <script
           {...jsonLdScriptProps<BlogPosting>({
@@ -56,7 +55,7 @@ export default function Post({ post }: PostProps) {
           <BlockContent className={styles.content} blocks={post.content} serializers={serializers}/>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

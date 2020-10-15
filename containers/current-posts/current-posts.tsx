@@ -1,15 +1,25 @@
 import PostList from '../../components/post-list'
+import { PostItemProps } from '../../components/post-item'
 import styles from './current-posts.module.scss'
 
-export default function CurrentPosts({ posts }) {
+export interface CurrentPostsProps {
+  title: string
+  posts: PostItemProps[]
+}
+
+export default function CurrentPosts({ title, posts }: CurrentPostsProps) {
   return (
     <div className={styles.currentPosts}>
       <div className={styles.wrapper}>
         <div className={styles.head}>
-          <h1>Nossas postagens</h1>
+          <h1>{title}</h1>
         </div>
         <div className={styles.body}>
-          <PostList posts={posts}/>
+          {posts.length ? (
+            <PostList posts={posts}/>
+          ) : (
+            <span>Não há postagens deste autor</span>
+          )}
         </div>
       </div>
     </div>

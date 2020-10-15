@@ -16,7 +16,7 @@ export default function Posts({ posts, numOfPages }: PostsProps) {
   const { page } = router.query
   return (
     <>
-      <CurrentPosts posts={posts}/>
+      <CurrentPosts title='Nossas postagens' posts={posts}/>
       <Pagination numOfPages={numOfPages} curPage={page} basePath='/postagens'/>
     </>
   )

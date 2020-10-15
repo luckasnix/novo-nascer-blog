@@ -3,8 +3,7 @@ import { jsonLdScriptProps } from 'react-schemaorg'
 import { Person } from 'schema-dts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Headline from '../../containers/headline'
-import PostList from '../../components/post-list'
+import CurrentPosts from '../../containers/current-posts'
 import Pagination from '../../containers/pagination'
 import { AuthorItemProps } from '../../components/author-item'
 import { PostItemProps } from '../../components/post-item'
@@ -31,8 +30,7 @@ export default function Author({ author, posts }: AuthorProps) {
           })}
         />
       </Head>
-      <Headline title={`Postagens de ${author.name}`}/>
-      <PostList posts={posts}/>
+      <CurrentPosts title={`Postagens de ${author.name}`} posts={posts}/>
       <Pagination numOfPages={1} curPage='1' basePath={`/autor/${slug}`}/>
     </>
   )

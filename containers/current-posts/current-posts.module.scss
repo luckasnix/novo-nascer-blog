@@ -1,0 +1,21 @@
+.currentPosts {
+  width: 100%;
+  margin: 40px 0px;
+  padding: 0px 40px;
+}
+
+.wrapper {
+  max-width: 720px;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.head {
+  h1 {
+    font: 40px 'DM Serif Text', serif;
+    color: #5076B8;
+    text-align: center;
+  }
+}

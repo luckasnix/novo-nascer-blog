@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Layout from '../../containers/layout'
-import Headline from '../../containers/headline'
-import PostList from '../../components/post-list'
+import CurrentPosts from '../../containers/current-posts'
 import Pagination from '../../containers/pagination'
 import { PostItemProps } from '../../components/post-item'
 import { getPostsSlugs, getPostsByPage } from '../../utils/sanity'
@@ -18,8 +17,7 @@ export default function Posts({ posts, numOfPages }: PostsProps) {
   const { page } = router.query
   return (
     <Layout>
-      <Headline title='Nossas postagens'/>
-      <PostList posts={posts}/>
+      <CurrentPosts posts={posts}/>
       <Pagination numOfPages={numOfPages} curPage={page} basePath='/postagens'/>
     </Layout>
   )

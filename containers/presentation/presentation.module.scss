@@ -1,0 +1,31 @@
+.presentation {
+  width: 100%;
+  margin: 40px 0px;
+  padding: 0px 40px;
+}
+
+.wrapper {
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.head {
+  h1 {
+    font: 36px 'DM Serif Text', serif;
+    color: #5076B8;
+    text-align: center;
+  }
+}
+
+.body {
+  display: grid;
+  gap: 20px;
+  p {
+    font: 16px/180% 'Poppins', sans-serif;
+    color: #A09678;
+    text-align: justify;
+  }
+}

@@ -5,6 +5,7 @@ import { urlFor } from '../../utils/sanity'
 import styles from './post-item.module.scss'
 
 export interface PostItemProps {
+  variant?: 'item' | 'card'
   slug?: string
   title?: string
   description?: string
@@ -21,10 +22,10 @@ export interface PostItemProps {
   author?: AuthorItemProps
 }
 
-export default function PostItem({ slug, title, description, date, coverImage }: PostItemProps) {
+export default function PostItem({ variant = 'item', slug, title, description, date, coverImage }: PostItemProps) {
   return (
     <Link href='/postagem/[slug]' as={`/postagem/${slug}`}>
-      <li className={styles.postItem}>
+      <li className={[styles.postItem, styles[variant]].join(' ')}>
         <div className={styles.thumbnail}>
           <img src={urlFor(coverImage).width(360).url()} alt={coverImage.description} loading='lazy'/>
         </div>

@@ -1,0 +1,24 @@
+.list {
+  display: grid;
+  gap: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas:
+    'st st'
+    'nd rd';
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  li {
+    &:nth-child(1) {
+      grid-area: st;
+    }
+    &:nth-child(2) {
+      grid-area: nd;
+    }
+    &:nth-child(3) {
+      grid-area: rd;
+    }
+  }
+}

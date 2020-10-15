@@ -1,0 +1,49 @@
+.recentPosts {
+  width: 100%;
+  margin: 40px 0px;
+  padding: 0px 40px;
+}
+
+.wrapper {
+  max-width: 720px;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.head {
+  h2 {
+    font: 32px 'DM Serif Text', serif;
+    color: #5076B8;
+    text-align: center;
+  }
+  h3 {
+    font: italic 24px 'DM Serif Text', serif;
+    color: #A09678;
+    text-align: center;
+  }
+}
+
+.body {
+  display: grid;
+  gap: 16px;
+  a {
+    display: block;
+    font: 18px 'Poppins', sans-serif;
+    color: #A09678;
+    text-align: center;
+    &:link {
+      color: #A09678;
+    }
+    &:visited {
+      color: #A09678;
+    }
+    &:active {
+      color: #A09678;
+    }
+    &:hover {
+      color: #837753;
+    }
+  }
+}

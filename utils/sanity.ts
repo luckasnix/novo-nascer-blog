@@ -23,6 +23,21 @@ export const getPostsByPage = async (page: number) => {
   return posts
 }
 
+export const getRecentPosts = async (qty: number) => {
+  const start = 0
+  const end = qty
+  const posts = await client.fetch(`
+    *[_type == 'post'] | order(date desc) [$start...$end] {
+      'slug': slug.current,
+      title,
+      description,
+      date,
+      coverImage
+    }
+  `, { start, end })
+  return posts
+}
+
 export const getPost = async (slug: string) => {
   const post = await client.fetch(`
     *[_type == 'post' && slug.current == $slug] {

@@ -1,4 +1,3 @@
-import { ComponentType } from 'react'
 import Link from 'next/link'
 import IconButton from '../../components/icon-button'
 import Post from '../../icons/post'
@@ -12,7 +11,7 @@ export interface Route {
     href: string
     as: string
   }
-  icon: ComponentType
+  icon: () => JSX.Element
 }
 
 const routes: Route[] = [

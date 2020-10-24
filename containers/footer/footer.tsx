@@ -1,4 +1,3 @@
-import { ComponentType } from 'react'
 import ExternalLink from '../../components/external-link'
 import Logo from '../../icons/logo'
 import WhatsApp from '../../icons/whats-app'
@@ -14,7 +13,7 @@ const curYear = new Date().getFullYear()
 export interface SocialMedia {
   title: string
   href: string
-  icon: ComponentType
+  icon: () => JSX.Element
 }
 
 const socialMedias: SocialMedia[] = [

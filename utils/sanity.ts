@@ -2,11 +2,21 @@ import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { postsPerPage } from './constants'
 
-const client = sanityClient({
+const clientOptions = {
   projectId: process.env.SANITY_PROJECT_ID,
   dataset: process.env.SANITY_DATASET,
-  useCdn: false
+  useCdn: process.env.NODE_ENV === 'production'
+}
+
+const client = sanityClient(clientOptions)
+
+const previewClient = sanityClient({
+  ...clientOptions,
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN
 })
+
+const getClient = (preview: boolean) => preview ? previewClient : client
 
 export const getPostsByPage = async (page: number) => {
   const start = (page - 1) * postsPerPage
@@ -38,8 +48,9 @@ export const getRecentPosts = async (qty: number) => {
   return posts
 }
 
-export const getPost = async (slug: string) => {
-  const post = await client.fetch(`
+export const getPost = async (slug: string, preview: boolean) => {
+  const curClient = getClient(preview)
+  const post = await curClient.fetch(`
     *[_type == 'post' && slug.current == $slug] {
       title,
       description,
@@ -57,7 +68,17 @@ export const getPost = async (slug: string) => {
       }
     }
   `, { slug })
-    .then(res => res[0])
+    .then(res => {
+      if (preview) {
+        if (res?.[1]) {
+          return res?.[1]
+        } else {
+          return res?.[0]
+        }
+      } else {
+        return res?.[0]
+      }
+    })
   return post
 }
 

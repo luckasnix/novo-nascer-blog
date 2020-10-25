@@ -1,9 +1,11 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { jsonLdScriptProps } from 'react-schemaorg'
 import { BlogPosting } from 'schema-dts'
-import BlockContent from '@sanity/block-content-to-react'
+import PreviewMode from '../../components/preview-mode'
 import Date from '../../components/date'
 import AuthorBox from '../../components/author-box'
+import BlockContent from '@sanity/block-content-to-react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { PostItemProps } from '../../components/post-item'
 import { urlFor, getPostsSlugs, getPost } from '../../utils/sanity'
@@ -22,11 +24,13 @@ const serializers = {
 
 interface PostProps {
   post: PostItemProps
+  preview: boolean
 }
 
-export default function Post({ post }: PostProps) {
+export default function Post({ post, preview }: PostProps) {
   const coverImageUrl = urlFor(post.coverImage).width(720).url()
   const authorProfilePictureUrl = urlFor(post.author.profilePicture).width(128).url()
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -48,6 +52,11 @@ export default function Post({ post }: PostProps) {
       </Head>
       <div className={styles.post}>
         <div className={styles.wrapper}>
+          {preview && (
+            <PreviewMode onClick={() => {
+              router.push('/api/exit-preview')
+            }}/>
+          )}
           <Date date={post.date}/>
           <h1>{post.title}</h1>
           <AuthorBox {...post.author}/>
@@ -69,14 +78,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  let { slug } = ctx.params
+  let { params: { slug }, preview = false } = ctx
   if (slug instanceof Array) {
     slug = slug[0]
   }
-  const post = await getPost(slug)
+  const post = await getPost(slug, preview)
   return {
     props: {
-      post
+      post,
+      preview
     }
   }
 }

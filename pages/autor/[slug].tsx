@@ -7,7 +7,7 @@ import CurrentPosts from '../../containers/current-posts'
 import Pagination from '../../containers/pagination'
 import { AuthorItemProps } from '../../components/author-item'
 import { PostItemProps } from '../../components/post-item'
-import { urlFor, getAuthorsSlugs, getAuthorBySlug, getPostsByAuthorSlug } from '../../utils/sanity'
+import { urlFor, getAuthorSlugs, getAuthorBySlug, getPostsByAuthorSlug } from '../../utils/sanity'
 
 interface AuthorProps {
   author: AuthorItemProps
@@ -37,8 +37,8 @@ export default function Author({ author, posts }: AuthorProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const authorsSlugs = await getAuthorsSlugs()
-  const paths = authorsSlugs.map(({ slug }) => ({ params: { slug } }))
+  const authorSlugs = await getAuthorSlugs()
+  const paths = authorSlugs.map(({ slug }) => ({ params: { slug } }))
   return {
     paths,
     fallback: false

@@ -1,16 +1,10 @@
 import Link from 'next/link'
-import { urlFor } from '../../utils/sanity'
+import { urlFor, ImageSource } from '../../utils/sanity'
 import styles from './author-item.module.scss'
 
 export interface AuthorItemProps {
   slug?: string
-  profilePicture?: {
-    _type: string
-    asset: {
-      _type: string
-      _ref: string
-    }
-  }
+  profilePicture?: ImageSource
   name?: string
   bio?: string
 }

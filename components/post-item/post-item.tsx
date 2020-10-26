@@ -1,23 +1,19 @@
 import Link from 'next/link'
 import Date from '../date'
 import { AuthorItemProps } from '../author-item'
-import { urlFor } from '../../utils/sanity'
+import { urlFor, ImageSource } from '../../utils/sanity'
 import styles from './post-item.module.scss'
 
 export interface PostItemProps {
   variant?: 'item' | 'card'
+  _id?: string
+  _createdAt?: string
+  _updatedAt?: string
   slug?: string
   title?: string
   description?: string
   date?: string
-  coverImage?: {
-    _type: string
-    asset: {
-      _type: string
-      _ref: string
-    }
-    description: string
-  }
+  coverImage?: ImageSource
   content?: any
   author?: AuthorItemProps
 }

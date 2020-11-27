@@ -6,9 +6,9 @@ import PreviewMode from '../../components/preview-mode'
 import Date from '../../components/date'
 import AuthorBox from '../../components/author-box'
 import BlockContent from '@sanity/block-content-to-react'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { PostItemProps } from '../../components/post-item'
-import { urlFor, getPostsSlugs, getPost } from '../../utils/sanity'
+import { urlFor, getPost } from '../../utils/sanity'
 import styles from '../../styles/post.module.scss'
 
 const serializers = {
@@ -22,12 +22,15 @@ const serializers = {
   }
 }
 
-interface PostProps {
+export interface PostProps {
   post: PostItemProps
   preview: boolean
 }
 
-export default function Post({ post, preview }: PostProps) {
+export default function Post({
+  post,
+  preview
+}: PostProps) {
   const coverImageUrl = urlFor(post.coverImage).width(720).url()
   const authorProfilePictureUrl = urlFor(post.author.profilePicture).width(128).url()
   const router = useRouter()
@@ -68,17 +71,12 @@ export default function Post({ post, preview }: PostProps) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const postsSlugs = await getPostsSlugs()
-  const paths = postsSlugs.map(({ slug }) => ({ params: { slug } }))
-  return {
-    paths,
-    fallback: false
-  }
-}
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  let { params: { slug }, preview = false } = ctx
+export const getServerSideProps: GetServerSideProps = async ({
+  params: {
+    slug
+  },
+  preview = false
+}) => {
   if (slug instanceof Array) {
     slug = slug[0]
   }

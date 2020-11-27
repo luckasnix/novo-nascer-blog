@@ -4,10 +4,17 @@ import { jsonLdScriptProps } from 'react-schemaorg'
 import { Organization } from 'schema-dts'
 import Presentation from '../containers/presentation'
 import RecentPosts from '../containers/recent-posts'
+import { PostItemProps } from '../components/post-item'
 import { company } from '../utils/constants'
 import { getRecentPosts } from '../utils/sanity'
 
-export default function Home({ posts }) {
+export interface HomeProps {
+  posts: PostItemProps[]
+}
+
+export default function Home({
+  posts
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -28,7 +35,9 @@ export default function Home({ posts }) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  locale
+}) => {
   const posts = await getRecentPosts(3, locale)
   return {
     props: {

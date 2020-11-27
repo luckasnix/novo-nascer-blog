@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import CurrentPosts from '../../containers/current-posts'
 import Pagination from '../../containers/pagination'
@@ -6,12 +6,15 @@ import { PostItemProps } from '../../components/post-item'
 import { getPostsSlugs, getPostsByPage } from '../../utils/sanity'
 import { postsPerPage } from '../../utils/constants'
 
-interface PostsProps {
+export interface PostsProps {
   posts: PostItemProps[]
   numOfPages: number
 }
 
-export default function Posts({ posts, numOfPages }: PostsProps) {
+export default function Posts({
+  posts,
+  numOfPages
+}: PostsProps) {
   const router = useRouter()
   const { page } = router.query
   return (
@@ -22,26 +25,17 @@ export default function Posts({ posts, numOfPages }: PostsProps) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const postsSlugs = await getPostsSlugs()
-  const numOfPages = Math.ceil(postsSlugs.length / postsPerPage)
-  let paths = []
-  for (let i = 1; i <= numOfPages; i++) {
-    paths.push({ params: { page: i.toString() } })
-  }
-  return {
-    paths,
-    fallback: false
-  }
-}
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  let { page } = ctx.params
+export const getServerSideProps: GetServerSideProps = async ({
+  params: {
+    page
+  },
+  locale
+}) => {
   if (page instanceof Array) {
     page = page[0]
   }
-  const posts = await getPostsByPage(+page)
-  const postsSlugs = await getPostsSlugs()
+  const posts = await getPostsByPage(+page, locale)
+  const postsSlugs = await getPostsSlugs(locale)
   const numOfPages = Math.ceil(postsSlugs.length / postsPerPage)
   return {
     props: {

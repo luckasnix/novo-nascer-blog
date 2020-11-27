@@ -20,18 +20,18 @@ const previewClient = sanityClient({
 
 const getClient = (preview: boolean) => preview ? previewClient : client
 
-export const getPostsByPage = async (page: number): Promise<PostItemProps[]> => {
+export const getPostsByPage = async (page: number, locale: string): Promise<PostItemProps[]> => {
   const start = (page - 1) * postsPerPage
   const end = page * postsPerPage
   const posts = await client.fetch(`
-    *[_type == 'post'] | order(date desc) [$start...$end] {
+    *[_type == 'post' && locale == $locale] | order(date desc) [$start...$end] {
       'slug': slug.current,
       title,
       description,
       date,
       coverImage
     }
-  `, { start, end })
+  `, { locale, start, end })
   return posts
 }
 
@@ -84,12 +84,12 @@ export const getPost = async (slug: string, preview: boolean): Promise<PostItemP
   return post
 }
 
-export const getPostsSlugs = async (): Promise<PostItemProps[]> => {
+export const getPostsSlugs = async (locale: string): Promise<PostItemProps[]> => {
   const postSlugs = await client.fetch(`
-    *[_type == 'post'] {
+    *[_type == 'post' && locale == $locale] {
       'slug': slug.current
     }
-  `)
+  `, { locale })
   return postSlugs
 }
 

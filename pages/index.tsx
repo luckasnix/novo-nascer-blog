@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { jsonLdScriptProps } from 'react-schemaorg'
 import { Organization } from 'schema-dts'
 import Presentation from '../containers/presentation'
@@ -28,8 +28,8 @@ export default function Home({ posts }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getRecentPosts(3)
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  const posts = await getRecentPosts(3, locale)
   return {
     props: {
       posts

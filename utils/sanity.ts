@@ -32,21 +32,21 @@ export const getPostsByPage = async (page: number): Promise<PostItemProps[]> => 
       coverImage
     }
   `, { start, end })
-  return posts as PostItemProps[]
+  return posts
 }
 
-export const getRecentPosts = async (qty: number): Promise<PostItemProps[]> => {
+export const getRecentPosts = async (qty: number, locale: string): Promise<PostItemProps[]> => {
   const start = 0
   const end = qty
   const posts = await client.fetch(`
-    *[_type == 'post'] | order(date desc) [$start...$end] {
+    *[_type == 'post' && locale == $locale] | order(date desc) [$start...$end] {
       'slug': slug.current,
       title,
       description,
       date,
       coverImage
     }
-  `, { start, end })
+  `, { locale, start, end })
   return posts
 }
 

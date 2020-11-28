@@ -11,7 +11,10 @@ interface AuthorsProps {
   numOfPages: number
 }
 
-export default function Authors({ authors, numOfPages }: AuthorsProps) {
+export default function Authors({
+  authors,
+  numOfPages
+}: AuthorsProps) {
   const router = useRouter()
   const { page } = router.query
   return (
@@ -35,8 +38,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  let { page } = ctx.params
+export const getStaticProps: GetStaticProps = async ({
+  params: {
+    page
+  }
+}) => {
   if (page instanceof Array) {
     page = page[0]
   }

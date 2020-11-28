@@ -13,7 +13,13 @@ import styles from '../../styles/post.module.scss'
 
 const serializers = {
   types: {
-    image: ({ node: { asset, description, caption }}) => (
+    image: ({
+      node: {
+        asset,
+        description,
+        caption
+      }
+    }) => (
       <figure>
         <img src={urlFor(asset).width(480).url()} alt={description}/>
         <figcaption>{caption}</figcaption>

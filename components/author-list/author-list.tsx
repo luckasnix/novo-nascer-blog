@@ -5,7 +5,9 @@ export interface AuthorListProps {
   authors: AuthorItemProps[]
 }
 
-export default function AuthorList({ authors }: AuthorListProps) {
+export default function AuthorList({
+  authors
+}: AuthorListProps) {
   return (
     <ul className={styles.authorList}>
       {authors.map(author => (

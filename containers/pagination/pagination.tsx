@@ -7,7 +7,11 @@ export interface PaginationProps {
   basePath: string
 }
 
-export default function Pagination({ numOfPages, curPage, basePath }: PaginationProps) {
+export default function Pagination({
+  numOfPages,
+  curPage,
+  basePath
+}: PaginationProps) {
   if (curPage instanceof Array) {
     curPage = curPage[0]
   }

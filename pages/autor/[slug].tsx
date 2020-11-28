@@ -14,7 +14,10 @@ interface AuthorProps {
   posts: PostItemProps[]
 }
 
-export default function Author({ author, posts }: AuthorProps) {
+export default function Author({
+  author,
+  posts
+}: AuthorProps) {
   const router = useRouter()
   const { slug } = router.query
   const profilePictureUrl = urlFor(author.profilePicture).width(128).url()
@@ -30,23 +33,37 @@ export default function Author({ author, posts }: AuthorProps) {
           })}
         />
       </Head>
-      <CurrentPosts title={`Postagens de ${author.name}`} posts={posts}/>
-      <Pagination numOfPages={1} curPage='1' basePath={`/autor/${slug}`}/>
+      <CurrentPosts
+        title={`Postagens de ${author.name}`}
+        posts={posts}
+      />
+      <Pagination
+        numOfPages={1}
+        curPage='1'
+        basePath={`/autor/${slug}`}
+      />
     </>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const authorSlugs = await getAuthorSlugs()
-  const paths = authorSlugs.map(({ slug }) => ({ params: { slug } }))
+  const paths = authorSlugs.map(({ slug }) => ({
+    params: {
+      slug
+    }
+  }))
   return {
     paths,
     fallback: false
   }
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  let { slug } = ctx.params
+export const getStaticProps: GetStaticProps = async ({
+  params: {
+    slug
+  }
+}) => {
   if (slug instanceof Array) {
     slug = slug[0]
   }

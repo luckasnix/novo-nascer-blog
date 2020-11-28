@@ -5,7 +5,10 @@ export interface ExternalLinkProps {
   children: ReactNode
 }
 
-export default function ExternalLink({ href, children }: ExternalLinkProps) {
+export default function ExternalLink({
+  href,
+  children
+}: ExternalLinkProps) {
   return (
     <a href={href} target='_blank' rel='noopener noreferrer'>
       {children}

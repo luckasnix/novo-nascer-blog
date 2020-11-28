@@ -7,7 +7,10 @@ export interface CurrentAuthorsProps {
   authors: AuthorItemProps[]
 }
 
-export default function CurrentAuthors({ title, authors }: CurrentAuthorsProps) {
+export default function CurrentAuthors({
+  title,
+  authors
+}: CurrentAuthorsProps) {
   return (
     <div className={styles.currentAuthors}>
       <div className={styles.wrapper}>

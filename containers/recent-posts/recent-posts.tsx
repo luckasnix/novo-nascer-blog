@@ -1,8 +1,15 @@
 import Link from 'next/link'
 import PostList from '../../components/post-list'
+import { PostItemProps } from '../../components/post-item'
 import styles from './recent-posts.module.scss'
 
-export default function RecentPosts({ posts }) {
+export interface RecentPostsProps {
+  posts: PostItemProps[]
+}
+
+export default function RecentPosts({
+  posts
+}: RecentPostsProps) {
   return (
     <div className={styles.recentPosts}>
       <div className={styles.wrapper}>

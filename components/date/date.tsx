@@ -5,7 +5,9 @@ export interface DateProps {
   date: string
 }
 
-export default function Date({ date }: DateProps) {
+export default function Date({
+  date
+}: DateProps) {
   const parsedDate = parseISO(date)
   return (
     <time dateTime={date}>

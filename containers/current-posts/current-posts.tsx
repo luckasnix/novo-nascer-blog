@@ -7,7 +7,10 @@ export interface CurrentPostsProps {
   posts: PostItemProps[]
 }
 
-export default function CurrentPosts({ title, posts }: CurrentPostsProps) {
+export default function CurrentPosts({
+  title,
+  posts
+}: CurrentPostsProps) {
   return (
     <div className={styles.currentPosts}>
       <div className={styles.wrapper}>

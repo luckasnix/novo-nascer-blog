@@ -6,7 +6,10 @@ export interface PostListProps {
   posts: PostItemProps[]
 }
 
-export default function PostList({ mode = 'list', posts }: PostListProps) {
+export default function PostList({
+  mode = 'list',
+  posts
+}: PostListProps) {
   return (
     <ul className={[styles.postList, styles[mode]].join(' ')}>
       {posts.map((post, idx) => (

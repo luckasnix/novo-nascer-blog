@@ -11,7 +11,11 @@ export interface IconButtonProps {
   icon: ComponentType
 }
 
-export default function IconButton({ title, link, icon: Icon }: IconButtonProps) {
+export default function IconButton({
+  title,
+  link,
+  icon: Icon
+}: IconButtonProps) {
   return (
     <Link href={link.href} as={link.as}>
       <a className={styles.iconButton}>

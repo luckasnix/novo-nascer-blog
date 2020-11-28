@@ -9,12 +9,21 @@ export interface AuthorItemProps {
   bio?: string
 }
 
-export default function AuthorItem({ slug, profilePicture, name, bio }: AuthorItemProps) {
+export default function AuthorItem({
+  slug,
+  profilePicture,
+  name,
+  bio
+}: AuthorItemProps) {
   return (
     <Link href='/autor/[slug]' as={`/autor/${slug}`}>
       <li className={styles.authorItem}>
         <div className={styles.picture}>
-          <img src={urlFor(profilePicture).width(128).url()} alt={`Foto do(a) ${name}`} loading='lazy'/>
+          <img
+            src={urlFor(profilePicture).width(128).url()}
+            alt={name}
+            loading='lazy'
+          />
         </div>
         <div className={styles.info}>
           <h2>{name}</h2>

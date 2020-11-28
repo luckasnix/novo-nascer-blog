@@ -4,7 +4,9 @@ export interface PreviewModeProps {
   onClick: () => void
 }
 
-export default function PreviewMode({ onClick }: PreviewModeProps) {
+export default function PreviewMode({
+  onClick
+}: PreviewModeProps) {
   return (
     <div className={styles.previewMode}>
       <p>Você está no modo de pré-visualização</p>
